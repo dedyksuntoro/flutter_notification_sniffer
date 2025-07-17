@@ -5,11 +5,13 @@ import 'package:flutter_notification_sniffer/flutter_notification_sniffer_method
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelFlutterNotificationSniffer platform = MethodChannelFlutterNotificationSniffer();
+  MethodChannelFlutterNotificationSniffer platform =
+      MethodChannelFlutterNotificationSniffer();
   const MethodChannel channel = MethodChannel('flutter_notification_sniffer');
 
   setUp(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
       channel,
       (MethodCall methodCall) async {
         return '42';
@@ -18,7 +20,8 @@ void main() {
   });
 
   tearDown(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, null);
   });
 
   test('getPlatformVersion', () async {

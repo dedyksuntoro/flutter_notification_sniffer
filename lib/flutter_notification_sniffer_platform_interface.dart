@@ -8,7 +8,8 @@ abstract class FlutterNotificationSnifferPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static FlutterNotificationSnifferPlatform _instance = MethodChannelFlutterNotificationSniffer();
+  static FlutterNotificationSnifferPlatform _instance =
+      MethodChannelFlutterNotificationSniffer();
 
   /// The default instance of [FlutterNotificationSnifferPlatform] to use.
   ///

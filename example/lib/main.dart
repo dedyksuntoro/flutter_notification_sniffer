@@ -1,7 +1,6 @@
 // example/lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_notification_sniffer/flutter_notification_sniffer.dart';
-import 'package:flutter/foundation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const MyHomePage(),
-    );
+    return MaterialApp(home: const MyHomePage());
   }
 }
 
@@ -64,29 +61,33 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   }
 
   void _listenToNotifications() {
-    FlutterNotificationSniffer.notificationStream.listen((notification) {
-      debugPrint('Notification Received:');
-      debugPrint('Title: ${notification['title'] ?? 'No Title'}');
-      debugPrint('Message: ${notification['message'] ?? 'No Message'}');
-      debugPrint('Timestamp: ${DateTime.fromMillisecondsSinceEpoch(
-            (notification['timestamp'] as num).toInt())}');
-      debugPrint('Package (Android) / Identifier (iOS): ${notification['packageName'] ?? notification['identifier'] ?? 'Unknown'}');
-      debugPrint('---');
+    FlutterNotificationSniffer.notificationStream.listen(
+      (notification) {
+        debugPrint('Notification Received:');
+        debugPrint('Title: ${notification['title'] ?? 'No Title'}');
+        debugPrint('Message: ${notification['message'] ?? 'No Message'}');
+        debugPrint(
+          'Timestamp: ${DateTime.fromMillisecondsSinceEpoch((notification['timestamp'] as num).toInt())}',
+        );
+        debugPrint(
+          'Package (Android) / Identifier (iOS): ${notification['packageName'] ?? notification['identifier'] ?? 'Unknown'}',
+        );
+        debugPrint('---');
 
-      setState(() {
-        notifications.add(notification);
-      });
-    }, onError: (error) {
-      debugPrint('Error receiving notification: $error');
-    });
+        setState(() {
+          notifications.add(notification);
+        });
+      },
+      onError: (error) {
+        debugPrint('Error receiving notification: $error');
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Notification Sniffer'),
-      ),
+      appBar: AppBar(title: const Text('Notification Sniffer')),
       body: ListView.builder(
         itemCount: notifications.length,
         itemBuilder: (context, index) {
@@ -95,9 +96,10 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
             title: Text(notification['title'] ?? 'No Title'),
             subtitle: Text(notification['message'] ?? 'No Message'),
             trailing: Text(
-                DateTime.fromMillisecondsSinceEpoch(
-                        (notification['timestamp'] as num).toInt())
-                    .toString()),
+              DateTime.fromMillisecondsSinceEpoch(
+                (notification['timestamp'] as num).toInt(),
+              ).toString(),
+            ),
           );
         },
       ),
