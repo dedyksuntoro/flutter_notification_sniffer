@@ -12,7 +12,7 @@ A Flutter plugin to capture push notifications on Android and iOS devices. This 
 ## Getting Started
 
 ### Prerequisites
-- Flutter SDK: `>=2.18.0 <3.0.0`
+- Flutter SDK: `>=2.18.0 <4.0.0`
 - Android: Minimum API level 21
 - iOS: Minimum deployment target 11.0
 
@@ -159,7 +159,7 @@ The plugin streams a `Map<String, dynamic>` with the following keys:
 Check the `example` directory for a complete working example of the plugin.
 
 ### Contributing
-Contributions are welcome! Please submit issues or pull requests to the [GitHub repository](https://github.com/yourusername/flutter_notification_sniffer).
+Contributions are welcome! Please submit issues or pull requests to the [GitHub repository](https://github.com/dedyksuntoro/flutter_notification_sniffer).
 
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
