@@ -1,0 +1,29 @@
+name: flutter_notification_sniffer
+description: A Flutter plugin to capture push notifications on Android and iOS, providing real-time notification data such as title, message, and timestamp.
+version: 0.0.1
+homepage: https://github.com/dedyksuntoro/flutter_notification_sniffer
+repository: https://github.com/dedyksuntoro/flutter_notification_sniffer
+issue_tracker: https://github.com/dedyksuntoro/flutter_notification_sniffer/issues
+
+environment:
+  sdk: '>=2.18.0 <4.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.dedyksuntoro.flutter_notification_sniffer
+        pluginClass: NotificationSnifferPlugin
+      ios:
+        pluginClass: FlutterNotificationSnifferPlugin

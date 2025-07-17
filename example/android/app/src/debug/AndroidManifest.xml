@@ -1,0 +1,16 @@
+<!-- example/android/app/src/debug/AndroidManifest.xml -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.flutter_notification_sniffer_example">
+
+    <application>
+        <service
+            android:name="com.dedyksuntoro.flutter_notification_sniffer.NotificationListener"
+            android:label="Notification Sniffer"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>
