@@ -21,7 +21,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_notification_sniffer: ^0.0.1
+  flutter_notification_sniffer: any
 ```
 
 Run `flutter pub get` to install the plugin.
